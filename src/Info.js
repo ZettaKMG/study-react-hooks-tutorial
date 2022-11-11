@@ -252,24 +252,57 @@
 // export default Info;
 
 // 인풋 상태 관리하기
-import React, {useReducer} from 'react';
+// import React, {useReducer} from 'react';
 
-function reducer(state, action) {
-    return {
-        ...state,
-        [action.name]: action.value
-    };
-}
+// function reducer(state, action) {
+//     return {
+//         ...state,
+//         [action.name]: action.value
+//     };
+// }
+
+// const Info = () => {
+//     const [state, dispatch] = useReducer(reducer, {
+//         name: '',
+//         nickname: ''
+//     });
+//     const {name, nickname} = state;
+//     const onChange = e => {
+//         dispatch(e.target);
+//     };
+    
+//     return (
+//         <>
+//             <>
+//                 <input name='name' value={name} onChange={onChange} />
+//                 <input name='nickname' value={nickname} onChange={onChange} />
+//             </>
+//             <br />
+//             <>
+//                 <>
+//                     <b>이름:</b> {name}
+//                 </>
+//                 <br />
+//                 <>
+//                     <b>닉네임:</b> {nickname}
+//                 </>
+//             </>
+//         </>
+//     );
+// };
+
+// export default Info;
+
+// 커스터마이징 Hook 사용하기
+import React from 'react';
+import useInputs from './useInputs';
 
 const Info = () => {
-    const [state, dispatch] = useReducer(reducer, {
+    const [state, onChange] = useInputs({
         name: '',
         nickname: ''
     });
     const {name, nickname} = state;
-    const onChange = e => {
-        dispatch(e.target);
-    };
     
     return (
         <>
