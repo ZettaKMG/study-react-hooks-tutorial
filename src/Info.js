@@ -207,43 +207,84 @@
 // export default Info;
 
 // 오직 언마운트될 때만 뒷정리 함수 호출
+// import React, {useEffect, useState} from 'react';
+
+// const Info = () => {
+//     const [name, setName] = useState('');
+//     const [nickname, setNickname] = useState('');
+//     useEffect(() => {
+//         console.log('effect');
+//         console.log(name);
+//         return () => {
+//             console.log('cleanup');
+//             console.log(name);
+//         };        
+//     }, []); // useEffect 함수 두 번째 파라미터에 비어있는 배열 넣으면 됨.
+
+//     const onChangeName = e => {
+//         setName(e.target.value);
+//     };
+
+//     const onChangeNickname = e => {
+//         setNickname(e.target.value);
+//     };
+
+//     return (
+//         <>
+//             <>
+//                 <input value={name} onChange={onChangeName} />
+//                 <input value={nickname} onChange={onChangeNickname} />
+//             </>
+//             <br />
+//             <>
+//              <>
+//                 <b>이름:</b> {name}
+//              </>
+//              <br />
+//              <>
+//                 <b>닉네임:</b> {nickname}
+//              </>
+//             </>
+//         </>
+//     );
+// };
+
+// export default Info;
+
+// 인풋 상태 관리하기
 import React, {useEffect, useState} from 'react';
 
+function reducer(state, action) {
+    return {
+        ...state,
+        [action.name]: action.value
+    };
+}
+
 const Info = () => {
-    const [name, setName] = useState('');
-    const [nickname, setNickname] = useState('');
-    useEffect(() => {
-        console.log('effect');
-        console.log(name);
-        return () => {
-            console.log('cleanup');
-            console.log(name);
-        };        
-    }, []); // useEffect 함수 두 번째 파라미터에 비어있는 배열 넣으면 됨.
-
-    const onChangeName = e => {
-        setName(e.target.value);
+    const [state, dispatch] = useReducer(reducer, {
+        name: '',
+        nickname: ''
+    });
+    const {name, nickname} = state;
+    const onChange = e => {
+        dispatch(e.target);
     };
-
-    const onChangeNickname = e => {
-        setNickname(e.target.value);
-    };
-
+    
     return (
         <>
             <>
-                <input value={name} onChange={onChangeName} />
-                <input value={nickname} onChange={onChangeNickname} />
+                <input name='name' value={name} onChange={onChange} />
+                <input name='nickname' value={nickname} onChange={onChange} />
             </>
-            <br />
             <>
-             <>
-                <b>이름:</b> {name}
-             </>
-             <br />
-             <>
-                <b>닉네임:</b> {nickname}
-             </>
+                <>
+                    <b>이름:</b> {name}
+                </>
+                <br />
+                <>
+                    <b>닉네임:</b> {nickname}
+                </>
             </>
         </>
     );
