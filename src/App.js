@@ -42,11 +42,21 @@
 // export default App;
 
 // useReducer로 카운터 구현한 것을 렌더링
+// import React from 'react';
+// import Counter from './Counter';
+
+// const App = () => {
+//   return <Counter />;
+// };
+
+// export default App;
+
+// 인풋 상태 관리하기 Info 컴포넌트 렌더링
 import React from 'react';
-import Counter from './Counter';
+import Info from './Info';
 
 const App = () => {
-  return <Counter />;
+  return <Info />;
 };
 
 export default App;
