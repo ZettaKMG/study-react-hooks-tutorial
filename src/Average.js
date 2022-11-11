@@ -132,7 +132,7 @@
 // export default Average;
 
 // useRef Hook: 함수형 컴포넌트에서 ref를 사용하기 쉽게 해줌.
-// Average 컴포넌트에서 등록 버튼을 눌렀을 때 포커스가 인풋 쪽으로 넘어가게 하는 코드 작성.
+// Average 컴포넌트에서 등록 버튼을 눌렀을 때 포커스가 인풋 쪽으로 넘어가게 하는 코드 작성
 import React, {useState, useMemo, useCallback, useRef} from 'react';
 
 const getAverage = numbers => {
@@ -177,3 +177,47 @@ const Average = () => {
 };
 
 export default Average;
+
+// 로컬 변수 사용하기
+// 렌더링과 상관없이 바뀔 수 있는 값을 로컬 변수라 함.
+// 예시(클래스형 컴포넌트)
+// import React, {Component} from 'react';
+
+// class MyComponent extends Component {
+//     id = 1
+//     setId = (n) => {
+//         this.id = n;
+//     }
+//     printId = () => {
+//         console.log(this.id);
+//     }
+//     render() {
+//         return (
+//             <>
+//                 MyComponent
+//             </>
+//         );
+//     }
+// }
+
+// export default MyComponent;
+
+// 예시(함수형 컴포넌트)
+// import React, {useRef} from 'react';
+
+// const RefSample = () => {
+//     const id = useRef(1);
+//     const setId = (n) => {
+//         id.current = n;
+//     }
+//     const printId = () => {
+//         console.log(id.current);
+//     }
+//     return (
+//         <>
+//             refsample
+//         </>
+//     );
+// };
+
+// export default RefSample;
