@@ -325,3 +325,8 @@ const Info = () => {
 };
 
 export default Info;
+
+// 다른 개발자가 만든 다양한 Hook도 라이브러리로 설치하여 사용 가능
+// 다음 링크 참고
+// https://nikgraf.github.io/react-hooks/
+// https://github.com/rehooks/awesome-react-hooks
