@@ -84,6 +84,10 @@
 // export default Average;
 
 // useCallback: useMemo와 유사. 만들어놨던 함수를 재사용할 수 있게 해줌.
+// 첫 번째 파라미터에는 생성하고 싶은 함수를, 두 번째 파라미터에는 배열을 넣으면 됨.
+// 두 번째 파라미터에 넣는 배열에는 어떤 값이 바뀌었을 때 함수를 새로 생성해야 하는지를 명시.
+// ㄴ 빈 배열을 넣게 되면 컴포넌트 렌더링 시 만들었던 함수를 계속 사용함.
+// ㄴ 함수 내부에서 상태 값에 의존할 경우, 그 값을 반드시 두 번째 파라미터 안에 포함시킬 것.
 import React, {useState, useMemo, useCallback} from 'react';
 
 const getAverage = numbers => {
