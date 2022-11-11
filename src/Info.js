@@ -81,14 +81,54 @@
 // export default Info;
 
 // 마운트될 때만 실행하고 싶을 때
+// import React, {useEffect, useState} from 'react';
+
+// const Info = () => {
+//     const [name, setName] = useState('');
+//     const [nickname, setNickname] = useState('');
+//     useEffect(() => {
+//         console.log('마운트될 때만 실행됩니다.');        
+//     }, []);
+
+//     const onChangeName = e => {
+//         setName(e.target.value);
+//     };
+
+//     const onChangeNickname = e => {
+//         setNickname(e.target.value);
+//     };
+
+//     return (
+//         <>
+//             <>
+//                 <input value={name} onChange={onChangeName} />
+//                 <input value={nickname} onChange={onChangeNickname} />
+//             </>
+//             <br />
+//             <>
+//              <>
+//                 <b>이름:</b> {name}
+//              </>
+//              <br />
+//              <>
+//                 <b>닉네임:</b> {nickname}
+//              </>
+//             </>
+//         </>
+//     );
+// };
+
+// export default Info;
+
+// 특정 값이 업데이트될 때만 실행하고 싶을 때
 import React, {useEffect, useState} from 'react';
 
 const Info = () => {
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
     useEffect(() => {
-        console.log('마운트될 때만 실행됩니다.');        
-    }, []);
+        console.log(name);        
+    }, [name]);
 
     const onChangeName = e => {
         setName(e.target.value);
