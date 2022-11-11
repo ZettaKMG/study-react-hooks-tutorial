@@ -162,6 +162,51 @@
 
 // 뒷정리하기
 // 컴포넌트가 언마운트되기 전 or 업데이트되기 직전에 작업을 수행하고 싶을 때, 뒷정리(cleanup) 함수 반환.
+// import React, {useEffect, useState} from 'react';
+
+// const Info = () => {
+//     const [name, setName] = useState('');
+//     const [nickname, setNickname] = useState('');
+//     useEffect(() => {
+//         console.log('effect');
+//         console.log(name);
+//         return () => {
+//             console.log('cleanup');
+//             console.log(name);
+//         };        
+//     }, [name]);
+
+//     const onChangeName = e => {
+//         setName(e.target.value);
+//     };
+
+//     const onChangeNickname = e => {
+//         setNickname(e.target.value);
+//     };
+
+//     return (
+//         <>
+//             <>
+//                 <input value={name} onChange={onChangeName} />
+//                 <input value={nickname} onChange={onChangeNickname} />
+//             </>
+//             <br />
+//             <>
+//              <>
+//                 <b>이름:</b> {name}
+//              </>
+//              <br />
+//              <>
+//                 <b>닉네임:</b> {nickname}
+//              </>
+//             </>
+//         </>
+//     );
+// };
+
+// export default Info;
+
+// 오직 언마운트될 때만 뒷정리 함수 호출
 import React, {useEffect, useState} from 'react';
 
 const Info = () => {
@@ -174,7 +219,7 @@ const Info = () => {
             console.log('cleanup');
             console.log(name);
         };        
-    }, [name]);
+    }, []); // useEffect 함수 두 번째 파라미터에 비어있는 배열 넣으면 됨.
 
     const onChangeName = e => {
         setName(e.target.value);
