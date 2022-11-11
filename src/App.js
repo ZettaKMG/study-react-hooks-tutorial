@@ -52,11 +52,21 @@
 // export default App;
 
 // 인풋 상태 관리하기 Info 컴포넌트 렌더링
+// import React from 'react';
+// import Info from './Info';
+
+// const App = () => {
+//   return <Info />;
+// };
+
+// export default App;
+
+// Average 컴포넌트 렌더링
 import React from 'react';
-import Info from './Info';
+import Average from './Average';
 
 const App = () => {
-  return <Info />;
+  return <Average />;
 };
 
 export default App;
