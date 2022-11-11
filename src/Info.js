@@ -37,18 +37,58 @@
 
 // useEffect: 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook.
 // componentDidMount + componentDidUpdate 라고 봐도 무방함.
+// import React, {useEffect, useState} from 'react';
+
+// const Info = () => {
+//     const [name, setName] = useState('');
+//     const [nickname, setNickname] = useState('');
+//     useEffect(() => {
+//         console.log('렌더링이 완료되었습니다!');
+//         console.log({
+//             name,
+//             nickname
+//         });
+//     });
+
+//     const onChangeName = e => {
+//         setName(e.target.value);
+//     };
+
+//     const onChangeNickname = e => {
+//         setNickname(e.target.value);
+//     };
+
+//     return (
+//         <>
+//             <>
+//                 <input value={name} onChange={onChangeName} />
+//                 <input value={nickname} onChange={onChangeNickname} />
+//             </>
+//             <br />
+//             <>
+//              <>
+//                 <b>이름:</b> {name}
+//              </>
+//              <br />
+//              <>
+//                 <b>닉네임:</b> {nickname}
+//              </>
+//             </>
+//         </>
+//     );
+// };
+
+// export default Info;
+
+// 마운트될 때만 실행하고 싶을 때
 import React, {useEffect, useState} from 'react';
 
 const Info = () => {
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
     useEffect(() => {
-        console.log('렌더링이 완료되었습니다!');
-        console.log({
-            name,
-            nickname
-        });
-    });
+        console.log('마운트될 때만 실행됩니다.');        
+    }, []);
 
     const onChangeName = e => {
         setName(e.target.value);
