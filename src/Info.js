@@ -252,7 +252,7 @@
 // export default Info;
 
 // 인풋 상태 관리하기
-import React, {useEffect, useState} from 'react';
+import React, {useReducer} from 'react';
 
 function reducer(state, action) {
     return {
@@ -277,6 +277,7 @@ const Info = () => {
                 <input name='name' value={name} onChange={onChange} />
                 <input name='nickname' value={nickname} onChange={onChange} />
             </>
+            <br />
             <>
                 <>
                     <b>이름:</b> {name}
